@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2 id="menuTitle">Menu</h2>
+        <button id="toggleSidebar" class="toggle-btn" title="Recolher/Expandir">☰</button>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="#" data-section="dashboard" title="Dashboard">
+              <span class="icon">📊</span><span class="label">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-section="alertas" title="Alertas">
+              <span class="icon">🚨</span><span class="label">Alertas</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-section="logs" title="Logs do Sistema">
+              <span class="icon">🧾</span><span class="label">Logs do Sistema</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-section="estatisticas" title="Métricas Gerais">
+              <span class="icon">📈</span><span class="label">Métricas Gerais</span>
+            </a>
+          </li>
+          <li>
+            <button id="downloadBtn" title="Baixar Relatório">
+              <span class="icon">⬇️</span><span class="label">Baixar Relatório</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main id="content">
+      <section id="dashboard" class="active">
+        <h1>Dashboard</h1>
+        <div class="cards">
+          <div class="card"><h3>Usuários</h3><p>128</p></div>
+          <div class="card"><h3>Casos Ativos</h3><p>54</p></div>
+          <div class="card"><h3>Alertas</h3><p>7</p></div>
+          <div class="card"><h3>Logs de Hoje</h3><p>312</p></div>
+        </div>
+      </section>
+
+      <section id="alertas">
+        <h1>Alertas</h1>
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Descrição</th><th>Data</th><th>Status</th></tr>
+          </thead>
+          <tbody id="alertasTable"></tbody>
+        </table>
+      </section>
+
+      <section id="logs">
+        <h1>Logs do Sistema</h1>
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Mensagem</th><th>Dia</th><th>Data</th><th>Hora</th></tr>
+          </thead>
+          <tbody id="logsTable"></tbody>
+        </table>
+      </section>
+
+      <section id="estatisticas">
+        <h1>Métricas Gerais</h1>
+        <div class="chart-container">
+          <canvas id="chartCrescimento"></canvas>
+        </div>
+        <div class="chart-container small">
+          <canvas id="chartEstatisticas"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
